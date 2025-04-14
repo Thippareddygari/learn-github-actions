@@ -1,0 +1,17 @@
+name: Github actions demo
+run-name: ${{ github.action }}
+on: [push]
+jobs:
+  Explore-Github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.event_name }}"
+      - run: echo "This job running on ${{ runner.os }}"
+      - run: echo "The name of your brnach is ${{ github.ref }} and repo ${{ github.repository }} "
+      - run: check out repo code
+        uses: actions/checkout@v4
+      - name: List of files
+        run: |
+          ls ${{ github.workflow }}
+      - run: echo "job satus is ${{ job.status }}"
+      
